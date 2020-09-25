@@ -77,13 +77,13 @@
                                        <td>{{$viewblog->name}}</td>
                                        <td>{{$viewblog->description}}</td>
                                        <td>
-                                       	@if(!empty($viewblog->banner_image))
-                                       	<img src="{{asset('/upload/blog/' .$viewblog->banner_image)}}" alt="" style="width: 100px;">
+                                       <!-- 	@if(!empty($viewblog->banner_image)) -->
+                                       	<img src="<?php echo asset("storage/$viewblog->banner_image")?>" alt="" style="width: 100px; height: 100px;">
                                        </td>
-                                       @endif
+                                      <!--  @endif -->
                                        <td>
-                                        @if(!empty($viewblog->main_image))
-                                        <img src="{{asset('/upload/mainblog/' .$viewblog->main_image)}}" alt="" style="width: 100px;">
+                                       <!--  @if(!empty($viewblog->main_image)) -->
+                                        <img src="<?php echo asset("storage/$viewblog->main_image")?>" alt="" style="width: 100px; height: 100px;">
                                        </td>
                                        @endif
                                          <td>

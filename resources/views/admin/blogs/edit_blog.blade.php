@@ -65,19 +65,19 @@
                               <div class="form-group">
                                  <label>Banner Image</label>
                                  <input type="file" name="banner_image">
-                                 <input type="hidden" name="current_image" value="{{$blogdetails->banner_image}}">
-                                @if(!empty($blogdetails->banner_image))
-                                <img src="{{asset('/upload/blog/' .$blogdetails->banner_image)}}" style="width: 100px; margin-top: 10px;">
-                                @endif
-                                
+                                 <!-- <input type="hidden" name="current_image" value="{{$blogdetails->banner_image}}">
+                                @if(!empty($blogdetails->banner_image)) -->
+                                <img src="<?php echo asset("storage/$blogdetails->banner_image")?>" alt="" style="width: 100px; height: 100px;">
+                               <!--  @endif
+                                 -->
                               </div>
 
                               <div class="form-group">
                                  <label>Main Image</label>
                                  <input type="file" name="main_image">
-                                 <input type="hidden" name="current_image1" value="{{$blogdetails->main_image}}">
-                                @if(!empty($blogdetails->main_image))
-                                <img src="{{asset('/upload/mainblog/' .$blogdetails->main_image)}}" style="width: 100px; margin-top: 10px;">
+                                 <!-- <input type="hidden" name="current_image1" value="{{$blogdetails->main_image}}">
+                                @if(!empty($blogdetails->main_image)) -->
+                               <img src="<?php echo asset("storage/$blogdetails->main_image")?>" alt="" style="width: 100px; height: 100px;">
                                 @endif
                                 
                               </div>

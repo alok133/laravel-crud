@@ -17,10 +17,12 @@ class CreateBlogsTable extends Migration
             $table->id('blog_id');
             $table->string('name');
             $table->string('description');
-            $table->string('banner_image');
+            $table->string('banner_image')->default(0);
+            $table->string('bannerimgpath')->default(0);
             $table->bigInteger('blogcategoryid')->unsigned();
             $table->foreign('blogcategoryid')->references('categoryid')->on('blogcategories');
-            $table->string('main_image');
+            $table->string('main_image')->default(0);
+            $table->string('mainimgpath')->default(0);
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

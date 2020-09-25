@@ -26,24 +26,31 @@ class Blogcontroller extends Controller
     		
 
     		//upload image
-
+             $url=" http://127.0.0.1:8000/storage/";
     		if($request->hasfile('banner_image')){
     			$file = $request->file('banner_image');
     			$extension = $file->getClientOriginalExtension();
-    			$filename = time().'.'.$extension;
-    			$file->move('upload/blog/',$filename);
-    			$blog->banner_image = $filename;
+    			// $filename = time().'.'.$extension;
+    			// $file->move('upload/blog/',$filename);
+    			// $blog->banner_image = $filename;
+                 $path=$request->file('banner_image')->storeAs('blog', time().'.'.$extension);
+                 $blog->banner_image=$path;
+                 $blog->bannerimgpath=$url.$path;
     		}else{
     			return $request;
     			$blog->banner_image = '';
     		}
     		
+             $url=" http://127.0.0.1:8000/storage/";
             if($request->hasfile('main_image')){
                 $file = $request->file('main_image');
                 $extension = $file->getClientOriginalExtension();
-                $filename = time().'.'.$extension;
-                $file->move('upload/mainblog/',$filename);
-                $blog->main_image = $filename;
+                // $filename = time().'.'.$extension;
+                // $file->move('upload/blog/',$filename);
+                // $blog->banner_image = $filename;
+                 $path=$request->file('main_image')->storeAs('mainblog', time().'.'.$extension);
+                 $blog->main_image=$path;
+                 $blog->mainimgpath=$url.$path;
             }else{
                 return $request;
                 $blog->main_image = '';
